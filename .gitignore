@@ -1,3 +1,6 @@
+#don't accidentally upload your password in plaintext
+config.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
