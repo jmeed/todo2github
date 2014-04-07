@@ -6,6 +6,15 @@ import re
 from github import *
 from configs import *
 
+import subprocess
+
+def git(*args):
+    return subprocess.check_output(['git'] + list(args))
+r = git("remote", "show", "origin")
+
+project = re.findall("(?<=\/)(.*)(?=\.git)", r, flags=0)[0]
+projectAccount = re.findall("(?<=com:)(.*)(?=\/)", r, flags=0)[0]
+
 gh = GitHub(username=user, password=password)
 
 path = '.'
